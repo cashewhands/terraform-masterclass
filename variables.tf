@@ -31,12 +31,3 @@ variable "vpc_cidr" {
   type        = string
 }
 
-variable "public_subnets" {
-  type        = list(string)
-  description = "The CIDR block for the public subnet"
-}
-
-variable "private_subnets" {
-  type        = list(string)
-  description = "The CIDR block for the private subnet"
-}
