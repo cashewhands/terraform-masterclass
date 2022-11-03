@@ -13,6 +13,7 @@ variable "app_name" {
   description = "Application Name"
 }
 
+
 variable "instance_type" {
   default = "t2.micro"
 }
