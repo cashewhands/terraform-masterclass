@@ -148,7 +148,7 @@ jobs:
       - name: Terraform Init
         id: init
         run: |
-          .github/scripts/terraform_workspace_init.sh
+          ./.github/scripts/terraform_workspace_init.sh
           terraform init
 
       - name: Terraform Format
@@ -163,8 +163,8 @@ jobs:
       - name: Terraform Plan
         id: plan
         run: |
-          terraform plan -no-color -input=false -out tf.plan -var-file='./configs/${{ inputs.environment }}.tfvars'
-        
+          terraform plan -no-color -input=false -lock=false -out tf.plan -var-file='./configs/${{ inputs.environment }}.tfvars'
+
         continue-on-error: false
         shell: bash
 
@@ -188,18 +188,18 @@ jobs:
           # scan modules
           checkov -d .terraform --quiet >> $GITHUB_STEP_SUMMARY
 
-      - name: Terraform Test - CheckOV (hard)
-        id: checkov-hard
-        if: ${{ !inputs.checkov_soft }}
-        continue-on-error: false
-        run: |
-          # generate step summary
-          echo '### Test Results :rocket:' >> $GITHUB_STEP_SUMMARY
-          # scan project terraform
-          checkov -d . --quiet >> $GITHUB_STEP_SUMMARY
+      # - name: Terraform Test - CheckOV (hard)
+      #   id: checkov-hard
+      #   if: ${{ !inputs.checkov_soft }}
+      #   continue-on-error: false
+      #   run: |
+      #     # generate step summary
+      #     echo '### Test Results :rocket:' >> $GITHUB_STEP_SUMMARY
+      #     # scan project terraform
+      #     checkov -d . --quiet >> $GITHUB_STEP_SUMMARY
 
-          # scan modules
-          checkov -d .terraform --quiet >> $GITHUB_STEP_SUMMARY
+      #     # scan modules
+      #     checkov -d .terraform --quiet >> $GITHUB_STEP_SUMMARY
 
       - uses: actions/github-script@v6
         if: github.event_name == 'pull_request'
