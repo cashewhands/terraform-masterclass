@@ -13,3 +13,7 @@ data "aws_ami" "server_ami" {
   }
 }
 
+data "aws_availability_zones" "available_zones" {
+  state = "available"
+}
+

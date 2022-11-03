@@ -1,5 +1,6 @@
 variable "region" {
   type        = string
+  default     = "us-east-1"
   description = "The AWS Region"
 }
 
@@ -15,6 +16,7 @@ variable "app_name" {
 
 
 variable "instance_type" {
+  type    = string
   default = "t2.micro"
 }
 

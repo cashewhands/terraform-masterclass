@@ -4,7 +4,7 @@ resource "aws_security_group" "webserver_sg" {
   #checkov:skip=CKV_AWS_260: allow ingress from 0.0.0.0/0 to port 8080 for testing
   name        = "webserver-sg"
   description = " security group to allow inbound/outbound from the VPC to EC2 Webserver"
-  /* vpc_id      = aws_vpc.vpc.id */
+  vpc_id      = aws_vpc.vpc.id
 
   ingress {
     from_port        = 443
