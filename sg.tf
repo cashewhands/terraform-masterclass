@@ -6,7 +6,6 @@ resource "aws_security_group" "webserver_sg" {
   description = " security group to allow inbound/outbound from the VPC to EC2 Webserver"
   vpc_id      = aws_vpc.vpc.id
 
-
   ingress {
     from_port        = 443
     to_port          = 443
