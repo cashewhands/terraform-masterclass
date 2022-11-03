@@ -1,7 +1,6 @@
 # Reusable workflow
 name: "Terraform"
 
-
 on:
   workflow_call:
     inputs:
@@ -165,6 +164,7 @@ jobs:
         id: plan
         run: |
           terraform plan -no-color -input=false -lock=false -out tf.plan -var-file='./configs/${{ inputs.environment }}.tfvars'
+
         continue-on-error: false
         shell: bash
 
@@ -280,8 +280,6 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: "Terraform_Plan_${{ needs.terraform-build.outputs.date }}"
-          path: |
-              infra/
 
       - name: Display structure of downloaded files
         run: ls -R
