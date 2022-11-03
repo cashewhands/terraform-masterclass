@@ -1,8 +1,5 @@
 # Reusable workflow
 name: "Terraform"
-# defaults:
-#   run:
-#     working-directory: /
 
 on:
   workflow_call:
@@ -48,9 +45,6 @@ jobs:
   readiness:
     name: "Readiness Checks"
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: /
     steps:
       - name: "Verify workspace name has been updated."
         env:
