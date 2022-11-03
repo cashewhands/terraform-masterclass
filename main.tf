@@ -5,6 +5,7 @@ resource "random_id" "node_id" {
   }
 }
 
+
 resource "aws_instance" "webserver" {
   ami                    = data.aws_ami.server_ami.id
   instance_type          = var.instance_type
