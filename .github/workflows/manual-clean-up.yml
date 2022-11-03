@@ -22,10 +22,6 @@ jobs:
  destroy-infrastructure:
    runs-on: ubuntu-latest
    if: github.ref == 'refs/heads/main'
-   defaults:
-     run:
-       shell: bash
-       working-directory: infra
    env:
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}

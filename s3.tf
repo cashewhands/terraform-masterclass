@@ -6,7 +6,7 @@ resource "aws_s3_bucket" "vpc-fl-bucket" {
   #checkov:skip=CKV_AWS_145: Will add to this later
   #checkov:skip=CKV_AWS_18: Ensure AWS access logging is enabled on S3 buckets
   #checkov:skip=CKV_AWS_144: No need for cross-region replication
-  bucket        = "cashewhands-fl-s3-bucket"
+  bucket        = "cashewhands-flogs-s3-bucket"
   force_destroy = true
 
 }

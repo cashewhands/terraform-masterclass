@@ -17,7 +17,4 @@ resource "aws_instance" "webserver" {
   nohup busybox httpd -f -p 8080 &
   EOF
 
-  tags = {
-    Name = "terraform-server-name"
-  }
 }
