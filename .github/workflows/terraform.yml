@@ -188,18 +188,18 @@ jobs:
           # scan modules
           checkov -d .terraform --quiet >> $GITHUB_STEP_SUMMARY
 
-      - name: Terraform Test - CheckOV (hard)
-        id: checkov-hard
-        if: ${{ !inputs.checkov_soft }}
-        continue-on-error: false
-        run: |
-          # generate step summary
-          echo '### Test Results :rocket:' >> $GITHUB_STEP_SUMMARY
-          # scan project terraform
-          checkov -d . --quiet >> $GITHUB_STEP_SUMMARY
+      # - name: Terraform Test - CheckOV (hard)
+      #   id: checkov-hard
+      #   if: ${{ !inputs.checkov_soft }}
+      #   continue-on-error: false
+      #   run: |
+      #     # generate step summary
+      #     echo '### Test Results :rocket:' >> $GITHUB_STEP_SUMMARY
+      #     # scan project terraform
+      #     checkov -d . --quiet >> $GITHUB_STEP_SUMMARY
 
-          # scan modules
-          checkov -d .terraform --quiet >> $GITHUB_STEP_SUMMARY
+      #     # scan modules
+      #     checkov -d .terraform --quiet >> $GITHUB_STEP_SUMMARY
 
       - uses: actions/github-script@v6
         if: github.event_name == 'pull_request'
