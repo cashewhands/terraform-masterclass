@@ -1,6 +1,6 @@
 # iam.tf | IAM Role Policies
 
-resource "aws_iam_role" "vpc-fl" {
+/* resource "aws_iam_role" "vpc-fl" {
   name = "cashewhands-vpc-fl"
 
   assume_role_policy = <<EOF
@@ -18,9 +18,9 @@ resource "aws_iam_role" "vpc-fl" {
   ]
 }
 EOF
-}
+} */
 
-resource "aws_iam_role_policy" "vpc-fl" {
+/* resource "aws_iam_role_policy" "vpc-fl" {
   name = "flow-log-policy"
   role = aws_iam_role.vpc-fl.id
 
@@ -42,4 +42,4 @@ resource "aws_iam_role_policy" "vpc-fl" {
   ]
 }
 EOF
-}
+} */
