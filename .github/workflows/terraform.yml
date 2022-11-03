@@ -1,7 +1,6 @@
 # Reusable workflow
 name: "Terraform"
 
-
 on:
   workflow_call:
     inputs:
