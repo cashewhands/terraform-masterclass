@@ -1,8 +1,5 @@
 # Reusable workflow
 name: "Terraform"
-# defaults:
-#   run:
-#     working-directory: /
 
 on:
   workflow_call:
@@ -48,9 +45,6 @@ jobs:
   readiness:
     name: "Readiness Checks"
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: /
     steps:
       - name: "Verify workspace name has been updated."
         env:
@@ -170,7 +164,7 @@ jobs:
         id: plan
         run: |
           terraform plan -no-color -input=false -out tf.plan -var-file='./configs/${{ inputs.environment }}.tfvars'
-        # working_directory: /
+        
         continue-on-error: false
         shell: bash
 
@@ -247,7 +241,7 @@ jobs:
         with:
           name: "Terraform_Plan_${{ steps.date.outputs.date }}"
           path: |
-            infra/tf.plan
+            tf.plan
 
       - name: Display structure of downloaded files
         run: ls -R
@@ -286,8 +280,6 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: "Terraform_Plan_${{ needs.terraform-build.outputs.date }}"
-          path: |
-              infra/
 
       - name: Display structure of downloaded files
         run: ls -R
