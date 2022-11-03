@@ -164,8 +164,7 @@ jobs:
       - name: Terraform Plan
         id: plan
         run: |
-          terraform plan -no-color -input=false -out tf.plan -var-file='./configs/${{ inputs.environment }}.tfvars'
-        # working_directory: /
+          terraform plan -no-color -input=false -lock=false -out tf.plan -var-file='./configs/${{ inputs.environment }}.tfvars'
         continue-on-error: false
         shell: bash
 
@@ -242,7 +241,7 @@ jobs:
         with:
           name: "Terraform_Plan_${{ steps.date.outputs.date }}"
           path: |
-            infra/tf.plan
+            tf.plan
 
       - name: Display structure of downloaded files
         run: ls -R
