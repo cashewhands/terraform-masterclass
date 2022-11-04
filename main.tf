@@ -5,7 +5,7 @@ resource "random_id" "node_id" {
   }
 }
 
-resource "aws_instance" "webserver" {
+/* resource "aws_instance" "webserver" {
   ami                    = data.aws_ami.server_ami.id
   instance_type          = var.instance_type
   vpc_security_group_ids = [aws_security_group.webserver_sg.id]
@@ -15,5 +15,4 @@ resource "aws_instance" "webserver" {
   echo "Hello, World > index.html
   nohup busybox httpd -f -p 8080 &
   EOF
-
-}
+} */

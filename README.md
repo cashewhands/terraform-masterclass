@@ -28,7 +28,6 @@ No modules.
 
 | Name | Type |
 |------|------|
-| [aws_instance.webserver](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/instance) | resource |
 | [aws_security_group.webserver_sg](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group) | resource |
 | [aws_vpc.vpc](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/vpc) | resource |
 | [random_id.node_id](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/id) | resource |
